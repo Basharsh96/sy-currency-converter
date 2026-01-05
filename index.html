@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Currency Converter (Old ↔ New)</title>
+  <style>
+    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    body { margin: 0; background: #f6f7fb; color: #111; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 18px; }
+    .card { background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 6px 20px rgba(0,0,0,.06); }
+    h1 { margin: 0 0 6px; font-size: 20px; }
+    .sub { margin: 0 0 14px; opacity: .7; font-size: 13px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    label { display: block; font-size: 13px; margin-bottom: 6px; opacity: .8; }
+    input {
+      width: 100%; padding: 12px 12px; font-size: 18px;
+      border: 1px solid #d9dbe7; border-radius: 12px; outline: none;
+      background: #fff;
+    }
+    input:focus { border-color: #6b6eea; box-shadow: 0 0 0 3px rgba(107,110,234,.15); }
+    .row { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+    button {
+      border: 0; border-radius: 999px; padding: 10px 14px; font-size: 14px;
+      cursor: pointer; background: #111; color: #fff;
+    }
+    button.secondary { background: #eef0ff; color: #222; }
+    .out { margin-top: 16px; }
+    .out .line { font-size: 18px; margin: 6px 0; }
+    .big { font-size: 22px; font-weight: 700; }
+    .hint { font-size: 12px; opacity: .7; margin-top: 10px; }
+    .warn { font-size: 12px; color: #7a2; opacity: .9; }
+    @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Old ↔ New Currency Total</h1>
+      <p class="sub">
+        Conversion rule: <b>1 new = 100 old</b> (edit below if it changes).
+      </p>
+
+      <div class="grid">
+        <div>
+          <label for="oldAmt">Amount in OLD currency</label>
+          <input id="oldAmt" inputmode="numeric" placeholder="e.g. 500000" />
+        </div>
+        <div>
+          <label for="newAmt">Amount in NEW currency</label>
+          <input id="newAmt" inputmode="numeric" placeholder="e.g. 500" />
+        </div>
+      </div>
+
+      <div class="row">
+        <button id="swapBtn" class="secondary" type="button">Swap inputs</button>
+        <button id="clearBtn" class="secondary" type="button">Clear</button>
+      </div>
+
+      <div class="out" aria-live="polite">
+        <div class="line">Total in NEW: <span id="totalNew" class="big">0</span></div>
+        <div class="line">Total in OLD: <span id="totalOld" class="big">0</span></div>
+        <div class="hint">
+          Tip: you can type commas/spaces like <code>50,000</code> — it will still work.
+        </div>
+        <div class="warn" id="warn"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Change this if the official rule changes.
+    // Example: if 1 new = 1000 old, set OLD_PER_NEW = 1000.
+    const OLD_PER_NEW = 100;
+
+    const oldInput = document.getElementById('oldAmt');
+    const newInput = document.getElementById('newAmt');
+    const totalOldEl = document.getElementById('totalOld');
+    const totalNewEl = document.getElementById('totalNew');
+    const warnEl = document.getElementById('warn');
+
+    function parseNumber(s) {
+      if (!s) return 0;
+      // Remove spaces, commas, Arabic thousands separators, etc.
+      const cleaned = String(s).replace(/[,\s\u066C\u066B]/g, '');
+      const n = Number(cleaned);
+      return Number.isFinite(n) ? n : NaN;
+    }
+
+    function formatNumber(n) {
+      try { return new Intl.NumberFormat().format(n); }
+      catch { return String(n); }
+    }
+
+    function update() {
+      warnEl.textContent = '';
+
+      const oldVal = parseNumber(oldInput.value);
+      const newVal = parseNumber(newInput.value);
+
+      if (Number.isNaN(oldVal) || Number.isNaN(newVal)) {
+        warnEl.textContent = 'Please enter valid numbers only.';
+        return;
+      }
+
+      // Totals
+      const totalOld = oldVal + (newVal * OLD_PER_NEW);
+      const totalNew = newVal + (oldVal / OLD_PER_NEW);
+
+      // Show with rounding to 2 decimals for NEW (optional)
+      const totalNewRounded = Math.round(totalNew * 100) / 100;
+
+      totalOldEl.textContent = formatNumber(Math.round(totalOld));
+      totalNewEl.textContent = formatNumber(totalNewRounded);
+    }
+
+    oldInput.addEventListener('input', update);
+    newInput.addEventListener('input', update);
+
+    document.getElementById('clearBtn').addEventListener('click', () => {
+      oldInput.value = '';
+      newInput.value = '';
+      update();
+      oldInput.focus();
+    });
+
+    document.getElementById('swapBtn').addEventListener('click', () => {
+      const a = oldInput.value;
+      oldInput.value = newInput.value;
+      newInput.value = a;
+      update();
+    });
+
+    update();
+  </script>
+</body>
+</html>
