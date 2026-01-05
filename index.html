@@ -458,11 +458,11 @@
           `على البائع أن يعيد لك ${fmtArNew(oweNew)} بالعملة الجديدة أو ${fmtAr(Math.round(oweOld))} بالعملة القديمة. ❗`;
         changeVerdict.className = 'muted bad';
       } else {
-        // extra received
-        const extraOld = absDiffOld;
-        const extraNew = toNew(extraOld);
+        // Received more change than expected -> still need to pay the difference
+        const oweOld = absDiffOld;
+        const oweNew = toNew(oweOld);
         changeVerdict.textContent =
-          `تم استلام زيادة مقدارها ${fmtArNew(extraNew)} بالجديدة أو ${fmtAr(Math.round(extraOld))} بالقديمة. ✅`;
+          `لا يزال يجب دفع ${fmtArNew(oweNew)} بالعملة الجديدة أو ${fmtAr(Math.round(oweOld))} بالعملة القديمة. ✅`;
         changeVerdict.className = 'muted ok';
       }
     }
