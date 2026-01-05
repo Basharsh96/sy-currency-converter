@@ -10,11 +10,11 @@
     :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
     * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
     body { margin: 0; background: #f6f7fb; color: #111; -webkit-text-size-adjust: 100%; }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 14px; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 10px; }
     .card { background: #fff; border-radius: 18px; padding: 14px; box-shadow: 0 6px 20px rgba(0,0,0,.06); }
     .top { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
     h1 { margin: 0; font-size: 20px; }
-    .sub { margin: 10px 0 0; opacity: .85; font-size: 13px; line-height: 1.7; }
+    .sub { margin: 10px 0 0; opacity: .86; font-size: 13px; line-height: 1.75; }
     .pill { display: inline-block; padding: 6px 10px; border-radius: 999px; background: #f1f2f7; font-size: 12px; opacity: .95; }
 
     .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0 0; }
@@ -24,12 +24,9 @@
     }
     .tab.active { background: #111; color: #fff; }
 
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
-    .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 12px; }
-
-    .box { border: 1px solid #e3e6f2; border-radius: 16px; padding: 12px; background: #fff; }
+    .box { border: 1px solid #e3e6f2; border-radius: 16px; padding: 12px; background: #fff; margin-top: 12px; }
     .boxTitle { font-size: 13px; opacity: .85; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
-    .mini { font-size: 12px; opacity: .7; line-height: 1.6; }
+    .mini { font-size: 12px; opacity: .74; line-height: 1.65; }
 
     label { display: block; font-size: 13px; margin-bottom: 6px; opacity: .9; }
     input {
@@ -39,41 +36,42 @@
     }
     input:focus { border-color: #6b6eea; box-shadow: 0 0 0 3px rgba(107,110,234,.15); }
 
-    .row { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; align-items: center; }
     button {
-      border: 0; border-radius: 14px; padding: 12px 14px; font-size: 15px;
-      cursor: pointer; background: #111; color: #fff; min-height: 44px;
+      border: 0; border-radius: 16px; padding: 12px 14px; font-size: 16px;
+      cursor: pointer; background: #111; color: #fff; min-height: 48px;
     }
     button.secondary { background: #eef0ff; color: #111; }
     button.ghost { background: #f1f2f7; color: #111; }
     button.full { width: 100%; }
+    button.small { font-size: 14px; min-height: 44px; border-radius: 14px; }
 
-    .btn2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
-    .btn2 button { border-radius: 16px; font-size: 15px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+    .btnRow3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 10px; }
+    .btnRow2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+    .row { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; align-items: center; }
 
-    .outCard { margin-top: 14px; border-radius: 18px; padding: 14px; background: #0f172a; color: #fff; }
+    .outCard { margin-top: 12px; border-radius: 18px; padding: 14px; background: #0f172a; color: #fff; }
     .outLine { font-size: 16px; margin: 8px 0; display: flex; justify-content: space-between; gap: 12px; }
     .outLabel { opacity: .85; }
     .outValue { font-size: 22px; font-weight: 800; }
-    .muted { opacity: .78; font-size: 12px; line-height: 1.7; margin-top: 10px; }
+    .muted { opacity: .8; font-size: 13px; line-height: 1.75; margin-top: 10px; }
     .warn { font-size: 12px; color: #ffd2d2; opacity: .95; margin-top: 8px; }
     .ok { color: #b9ffcf; }
     .bad { color: #ffb4b4; }
 
-    .toggleGroup { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
-    .toggleGroup button { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); }
-    .toggleGroup button.active { background: #fff; color: #0f172a; border-color: #fff; font-weight: 700; }
-
-    details { margin-top: 12px; }
-    summary { cursor: pointer; font-size: 13px; opacity: .85; }
-
+    .stepPill { display:inline-block; padding:6px 10px; border-radius: 999px; background:#eef0ff; font-size:12px; opacity:.95; }
+    .q { font-size: 18px; font-weight: 850; margin: 2px 0 8px; }
     .hidden { display: none !important; }
 
-    /* Mobile first: default to single column */
+    .summaryCard { background:#fff; border:1px solid #e3e6f2; border-radius:16px; padding:12px; margin-top:12px; }
+    .summaryLine { display:flex; justify-content:space-between; gap:12px; margin:8px 0; font-size:14px; }
+    .summaryKey { opacity:.75; }
+    .summaryVal { font-weight:750; }
+
     @media (max-width: 820px) {
-      .grid, .grid3 { grid-template-columns: 1fr; }
-      .btn2 { grid-template-columns: 1fr; }
-      .toggleGroup { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .btnRow3 { grid-template-columns: 1fr; }
+      .btnRow2 { grid-template-columns: 1fr; }
       .wrap { padding: 10px; }
     }
   </style>
@@ -87,179 +85,238 @@
       </div>
 
       <p class="sub">
-        لتحويل المبالغ بين العملتين أو للتحقق من <b>الباقي</b> أثناء الدفع.
+        تبويب "الدفع والباقي" يعمل كخطوات بسيطة: <b>السعر</b> → <b>المدفوع</b> → <b>النتيجة</b> → (اختياري) <b>التحقق</b>.
         <br><span class="mini">تدعم الأرقام العربية (١٢٣) والفواصل مثل 50,000 أو 50 000.</span>
       </p>
 
       <div class="tabs" role="tablist" aria-label="اختيار الوضع">
-        <button class="tab active" id="tabConvert" type="button">تحويل / جمع</button>
-        <button class="tab" id="tabChange" type="button">الباقي / التحقق</button>
+        <button class="tab active" id="tabConvert" type="button">تحويل سريع</button>
+        <button class="tab" id="tabWizard" type="button">الدفع والباقي (خطوات)</button>
       </div>
 
-      <!-- ===================== وضع التحويل ===================== -->
+      <!-- ===== Tab 1: Convert quick ===== -->
       <section id="sectionConvert">
-        <div class="grid">
-          <div class="box">
-            <div class="boxTitle">
-              <span>السعر أو المبلغ</span>
-              <span class="mini">اضغط على زر “السعر مكتوب…” لتسهيل الإدخال</span>
-            </div>
+        <div class="box">
+          <div class="boxTitle"><span>تحويل سريع</span><span class="mini">مناسب لمعرفة السعر بالعملة الأخرى</span></div>
 
-            <div class="btn2">
-              <button id="priceIsNewBtn" type="button">السعر مكتوب بالعملة الجديدة</button>
-              <button class="secondary" id="priceIsOldBtn" type="button">السعر مكتوب بالعملة القديمة</button>
+          <div class="btnRow2">
+            <button id="priceIsNewBtn" type="button">السعر مكتوب بالعملة الجديدة</button>
+            <button class="secondary" id="priceIsOldBtn" type="button">السعر مكتوب بالعملة القديمة</button>
+          </div>
+
+          <div class="grid" style="margin-top:12px;">
+            <div>
+              <label for="oldAmt">المبلغ بالعملة القديمة</label>
+              <input id="oldAmt" inputmode="numeric" placeholder="مثال: 500000" />
+            </div>
+            <div>
+              <label for="newAmt">المبلغ بالعملة الجديدة</label>
+              <input id="newAmt" inputmode="numeric" placeholder="مثال: 500" />
+            </div>
+          </div>
+
+          <div class="outCard" aria-live="polite">
+            <div class="outLine"><span class="outLabel">بالعملة الجديدة</span><span class="outValue" id="totalNew">0</span></div>
+            <div class="outLine"><span class="outLabel">بالعملة القديمة</span><span class="outValue" id="totalOld">0</span></div>
+            <div class="warn" id="convertWarn"></div>
+          </div>
+
+          <div class="row">
+            <button class="full" id="copyConvert" type="button">نسخ النتيجة</button>
+            <span class="mini" id="copyConvertStatus"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Tab 2: Wizard ===== -->
+      <section id="sectionWizard" class="hidden">
+
+        <!-- Step 1 -->
+        <div class="box" id="step1">
+          <div class="boxTitle"><span class="stepPill">الخطوة 1</span><span class="mini">السعر</span></div>
+          <div class="q">كم سعر/مجموع المشتريات؟</div>
+
+          <div class="btnRow3">
+            <button class="ghost" id="s1_old" type="button">بالقديمة فقط</button>
+            <button class="ghost" id="s1_new" type="button">بالجديدة فقط</button>
+            <button class="ghost" id="s1_both" type="button">بالعملتين</button>
+          </div>
+
+          <div class="grid" style="margin-top:12px;">
+            <div id="s1_old_box" class="hidden">
+              <label for="s1_old_in">السعر بالعملة القديمة</label>
+              <input id="s1_old_in" inputmode="numeric" placeholder="مثال: 50000" />
+            </div>
+            <div id="s1_new_box" class="hidden">
+              <label for="s1_new_in">السعر بالعملة الجديدة</label>
+              <input id="s1_new_in" inputmode="numeric" placeholder="مثال: 500" />
+            </div>
+          </div>
+
+          <div class="row">
+            <button id="s1_next" class="full" type="button">التالي</button>
+            <div class="warn" id="s1_warn"></div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="box hidden" id="step2">
+          <div class="boxTitle"><span class="stepPill">الخطوة 2</span><span class="mini">المدفوع</span></div>
+
+          <div class="outCard" aria-live="polite">
+            <div class="outLine"><span class="outLabel">السعر (بالجديدة)</span><span class="outValue" id="k_price_new">0</span></div>
+            <div class="outLine"><span class="outLabel">السعر (بالقديمة)</span><span class="outValue" id="k_price_old">0</span></div>
+            <div class="muted" id="k_price_hint">—</div>
+          </div>
+
+          <div class="q" style="margin-top:12px;">كم سيتم دفعه الآن؟</div>
+
+          <div class="btnRow3">
+            <button class="ghost" id="s2_old" type="button">بالقديمة فقط</button>
+            <button class="ghost" id="s2_new" type="button">بالجديدة فقط</button>
+            <button class="ghost" id="s2_both" type="button">بالعملتين</button>
+          </div>
+
+          <div class="grid" style="margin-top:12px;">
+            <div id="s2_old_box" class="hidden">
+              <label for="s2_old_in">المدفوع بالعملة القديمة</label>
+              <input id="s2_old_in" inputmode="numeric" placeholder="مثال: 100000" />
+            </div>
+            <div id="s2_new_box" class="hidden">
+              <label for="s2_new_in">المدفوع بالعملة الجديدة</label>
+              <input id="s2_new_in" inputmode="numeric" placeholder="مثال: 0" />
+            </div>
+          </div>
+
+          <div class="row">
+            <button id="s2_next" class="full" type="button">عرض النتيجة</button>
+            <button id="s2_back" class="secondary full" type="button">رجوع</button>
+            <div class="warn" id="s2_warn"></div>
+          </div>
+        </div>
+
+        <!-- Step 3 (Result + next action) -->
+        <div class="box hidden" id="step3">
+          <div class="boxTitle"><span class="stepPill">الخطوة 3</span><span class="mini">النتيجة</span></div>
+
+          <div class="outCard" aria-live="polite" id="r_card">
+            <div class="outLine"><span class="outLabel">السعر (بالجديدة)</span><span class="outValue" id="r_price_new">0</span></div>
+            <div class="outLine"><span class="outLabel">السعر (بالقديمة)</span><span class="outValue" id="r_price_old">0</span></div>
+            <div class="outLine"><span class="outLabel">المدفوع (بالجديدة)</span><span class="outValue" id="r_paid_new">0</span></div>
+            <div class="outLine"><span class="outLabel">المدفوع (بالقديمة)</span><span class="outValue" id="r_paid_old">0</span></div>
+            <div class="muted" id="r_message">—</div>
+            <div class="warn" id="r_warn"></div>
+          </div>
+
+          <!-- If paid less -->
+          <div class="box hidden" id="needMoreBox" style="margin-top:12px;">
+            <div class="boxTitle"><span>مبلغ إضافي</span><span class="mini">إذا سيتم دفع مبلغ إضافي الآن</span></div>
+            <div class="q">كم سيتم دفعه إضافياً الآن؟</div>
+
+            <div class="btnRow3">
+              <button class="ghost" id="s3_old" type="button">بالقديمة فقط</button>
+              <button class="ghost" id="s3_new" type="button">بالجديدة فقط</button>
+              <button class="ghost" id="s3_both" type="button">بالعملتين</button>
             </div>
 
             <div class="grid" style="margin-top:12px;">
-              <div>
-                <label for="oldAmt">المبلغ بالعملة القديمة</label>
-                <input id="oldAmt" inputmode="numeric" placeholder="مثال: 500000" />
+              <div id="s3_old_box" class="hidden">
+                <label for="s3_old_in">الإضافي بالقديمة</label>
+                <input id="s3_old_in" inputmode="numeric" placeholder="مثال: 10000" />
               </div>
-              <div>
-                <label for="newAmt">المبلغ بالعملة الجديدة</label>
-                <input id="newAmt" inputmode="numeric" placeholder="مثال: 500" />
+              <div id="s3_new_box" class="hidden">
+                <label for="s3_new_in">الإضافي بالجديدة</label>
+                <input id="s3_new_in" inputmode="numeric" placeholder="مثال: 100" />
               </div>
-            </div>
-
-            <div class="mini" style="margin-top:10px;">
-              إذا كان السعر مكتوباً بالجديدة فقط: اجعل القديمة = 0 وأدخل السعر بالجديدة. والعكس صحيح.
-            </div>
-          </div>
-
-          <div class="box">
-            <div class="boxTitle">
-              <span>النتيجة</span>
-              <span class="mini">يمكن نسخها بسرعة</span>
-            </div>
-
-            <div class="outCard" aria-live="polite">
-              <div class="outLine">
-                <span class="outLabel">الإجمالي بالعملة الجديدة</span>
-                <span class="outValue" id="totalNew">0</span>
-              </div>
-              <div class="outLine">
-                <span class="outLabel">الإجمالي بالعملة القديمة</span>
-                <span class="outValue" id="totalOld">0</span>
-              </div>
-              <div class="warn" id="convertWarn"></div>
             </div>
 
             <div class="row">
-              <button class="full" id="copyConvert" type="button">نسخ النتيجة</button>
-              <span class="mini" id="copyConvertStatus"></span>
+              <button id="s3_apply" class="full" type="button">احسب بعد الدفع الإضافي</button>
+              <div class="warn" id="s3_warn"></div>
+            </div>
+          </div>
+
+          <!-- If change expected -->
+          <div class="box hidden" id="verifyPromptBox" style="margin-top:12px;">
+            <div class="boxTitle"><span>التحقق من الباقي</span><span class="mini">اختياري</span></div>
+            <div class="q">هل تريد التحقق من الباقي المستلم؟</div>
+
+            <div class="btnRow2">
+              <button id="verify_yes" type="button">نعم، تحقق</button>
+              <button id="verify_no" class="secondary" type="button">لا</button>
             </div>
 
-            <details>
-              <summary>إضافة الاختصار للهاتف (كأنه تطبيق)</summary>
-              <div class="mini" style="margin-top:8px;">
-                <b>iPhone:</b> مشاركة → “إضافة إلى الشاشة الرئيسية”.<br>
-                <b>Android:</b> القائمة ⋮ → “Add to Home screen / إضافة إلى الشاشة الرئيسية”.
+            <div id="verify_inputs_area" class="hidden" style="margin-top:12px;">
+              <div class="mini">كم كان الباقي المستلم؟</div>
+
+              <div class="btnRow3">
+                <button class="ghost" id="v_old" type="button">بالقديمة فقط</button>
+                <button class="ghost" id="v_new" type="button">بالجديدة فقط</button>
+                <button class="ghost" id="v_both" type="button">بالعملتين</button>
               </div>
-            </details>
-          </div>
-        </div>
-      </section>
 
-      <!-- ===================== وضع الباقي/التحقق ===================== -->
-      <section id="sectionChange" class="hidden">
-        <div class="box" style="margin-top:12px;">
-          <div class="boxTitle">
-            <span>التحقق من الباقي</span>
-            <span class="mini">سعر + مدفوع + باقي مستلم → يظهر الفرق</span>
+              <div class="grid" style="margin-top:12px;">
+                <div id="v_old_box" class="hidden">
+                  <label for="v_old_in">الباقي المستلم بالقديمة</label>
+                  <input id="v_old_in" inputmode="numeric" placeholder="مثال: 50000" />
+                </div>
+                <div id="v_new_box" class="hidden">
+                  <label for="v_new_in">الباقي المستلم بالجديدة</label>
+                  <input id="v_new_in" inputmode="numeric" placeholder="مثال: 0" />
+                </div>
+              </div>
+
+              <div class="row">
+                <button id="v_check" class="full" type="button">تحقق الآن</button>
+                <div class="warn" id="v_warn"></div>
+              </div>
+
+              <div class="outCard hidden" id="v_out">
+                <div class="outLine"><span class="outLabel">الباقي المتوقع (بالجديدة)</span><span class="outValue" id="v_expected_new">0</span></div>
+                <div class="outLine"><span class="outLabel">الباقي المتوقع (بالقديمة)</span><span class="outValue" id="v_expected_old">0</span></div>
+                <div class="outLine"><span class="outLabel">الباقي المستلم (بالجديدة)</span><span class="outValue" id="v_received_new">0</span></div>
+                <div class="outLine"><span class="outLabel">الباقي المستلم (بالقديمة)</span><span class="outValue" id="v_received_old">0</span></div>
+                <div class="muted" id="v_msg">—</div>
+              </div>
+            </div>
           </div>
 
-          <div class="btn2">
-            <button id="changePriceIsNewBtn" type="button">السعر مكتوب بالعملة الجديدة</button>
-            <button class="secondary" id="changePriceIsOldBtn" type="button">السعر مكتوب بالعملة القديمة</button>
-          </div>
+          <!-- Final summary -->
+          <div class="summaryCard hidden" id="finalSummary">
+            <div class="boxTitle"><span class="stepPill">ملخص</span><span class="mini">يمكن إظهار هذا للبائع</span></div>
 
-          <div class="grid3">
-            <div class="box">
-              <div class="boxTitle"><span>السعر</span><span class="mini">أدخل قيمة واحدة</span></div>
-              <label for="priceOld">بالقديمة</label>
-              <input id="priceOld" inputmode="numeric" placeholder="مثال: 50000" />
-              <div style="height:10px"></div>
-              <label for="priceNew">بالجديدة</label>
-              <input id="priceNew" inputmode="numeric" placeholder="مثال: 500" />
+            <div class="summaryLine"><span class="summaryKey">السعر</span><span class="summaryVal" id="sum_price">—</span></div>
+            <div class="summaryLine"><span class="summaryKey">المدفوع</span><span class="summaryVal" id="sum_paid">—</span></div>
+            <div class="summaryLine"><span class="summaryKey">النتيجة</span><span class="summaryVal" id="sum_result">—</span></div>
+
+            <div class="row">
+              <button class="full" id="copySummary" type="button">نسخ الملخص</button>
+              <span class="mini" id="copySummaryStatus"></span>
             </div>
 
-            <div class="box">
-              <div class="boxTitle"><span>المدفوع</span><span class="mini">يمكن إدخال عملتين</span></div>
-              <label for="paidOld">بالقديمة</label>
-              <input id="paidOld" inputmode="numeric" placeholder="مثال: 100000" />
-              <div style="height:10px"></div>
-              <label for="paidNew">بالجديدة</label>
-              <input id="paidNew" inputmode="numeric" placeholder="مثال: 0" />
-            </div>
-
-            <div class="box">
-              <div class="boxTitle"><span>الباقي المستلم</span><span class="mini">يمكن إدخال عملتين</span></div>
-              <label for="changeOld">بالقديمة</label>
-              <input id="changeOld" inputmode="numeric" placeholder="مثال: 50000" />
-              <div style="height:10px"></div>
-              <label for="changeNew">بالجديدة</label>
-              <input id="changeNew" inputmode="numeric" placeholder="مثال: 0" />
+            <div class="row">
+              <button class="secondary full" id="restart" type="button">ابدأ من البداية</button>
             </div>
           </div>
 
           <div class="row">
-            <button class="secondary full" id="clearChange" type="button">مسح</button>
+            <button class="full" id="copyResult" type="button">نسخ ملخص النتيجة</button>
+            <span class="mini" id="copyResultStatus"></span>
           </div>
 
-          <div class="outCard" aria-live="polite" id="changeOutCard">
-            <div class="outLine">
-              <span class="outLabel" id="lblPrice">السعر</span>
-              <span class="outValue" id="priceTotal">0</span>
-            </div>
-            <div class="outLine">
-              <span class="outLabel" id="lblPaid">المدفوع</span>
-              <span class="outValue" id="paidTotal">0</span>
-            </div>
-            <div class="outLine">
-              <span class="outLabel" id="lblExpected">الباقي المتوقع</span>
-              <span class="outValue" id="expectedChange">0</span>
-            </div>
-            <div class="outLine">
-              <span class="outLabel" id="lblReceived">الباقي المستلم</span>
-              <span class="outValue" id="receivedChange">0</span>
-            </div>
-            <div class="outLine">
-              <span class="outLabel" id="lblDiff">الفرق</span>
-              <span class="outValue" id="diff">0</span>
-            </div>
-
-            <!-- message -->
-            <div class="muted" id="changeVerdict">—</div>
-            <div class="warn" id="changeWarn"></div>
-
-            <!-- toggle under black section -->
-            <div class="toggleGroup" aria-label="تبديل عرض العملة">
-              <button id="showOldBtn" class="active" type="button">عرض بالعملة القديمة</button>
-              <button id="showNewBtn" type="button">عرض بالعملة الجديدة</button>
-            </div>
-          </div>
-
-          <div class="row">
-            <button class="full" id="copyChange" type="button">نسخ ملخص التحقق</button>
-            <span class="mini" id="copyChangeStatus"></span>
-          </div>
         </div>
       </section>
-
     </div>
   </div>
 
   <script>
-    // ====================== الإعداد ======================
     const OLD_PER_NEW = 100;
 
-    // ---------------------- أدوات مساعدة ----------------------
     function normalizeArabicDigits(str) {
       const map = { '٠':'0','١':'1','٢':'2','٣':'3','٤':'4','٥':'5','٦':'6','٧':'7','٨':'8','٩':'9',
                     '۰':'0','۱':'1','۲':'2','۳':'3','۴':'4','۵':'5','۶':'6','۷':'7','۸':'8','۹':'9' };
       return String(str).replace(/[٠-٩۰-۹]/g, d => map[d] ?? d);
     }
-
     function parseNumber(s) {
       if (!s) return 0;
       const normalized = normalizeArabicDigits(s);
@@ -267,265 +324,292 @@
       const n = Number(cleaned);
       return Number.isFinite(n) ? n : NaN;
     }
-
-    function fmtAr(n) {
-      try { return new Intl.NumberFormat('ar').format(n); }
-      catch { return String(n); }
-    }
-
+    function fmtAr(n) { try { return new Intl.NumberFormat('ar').format(n); } catch { return String(n); } }
     function fmtArNew(n) {
-      // new currency: show up to 2 decimals only if needed
       const rounded = Math.round(n * 100) / 100;
       const isInt = Math.abs(rounded - Math.round(rounded)) < 1e-9;
       return fmtAr(isInt ? Math.round(rounded) : rounded);
     }
+    function toOld(oldVal, newVal) { return oldVal + (newVal * OLD_PER_NEW); }
+    function oldToNew(oldAmount) { return oldAmount / OLD_PER_NEW; }
 
     async function copyText(text, statusEl) {
-      try {
-        await navigator.clipboard.writeText(text);
-        statusEl.textContent = 'تم النسخ ✅';
-        setTimeout(() => statusEl.textContent = '', 1500);
-      } catch (e) {
-        statusEl.textContent = 'لم يتم النسخ (جرّب النسخ يدوياً)';
-        setTimeout(() => statusEl.textContent = '', 2500);
-      }
+      try { await navigator.clipboard.writeText(text); statusEl.textContent='تم النسخ ✅'; setTimeout(()=>statusEl.textContent='',1500); }
+      catch { statusEl.textContent='لم يتم النسخ (جرّب النسخ يدوياً)'; setTimeout(()=>statusEl.textContent='',2500); }
     }
 
-    function setActive(btnA, btnB, activeA) {
-      btnA.classList.toggle('active', activeA);
-      btnB.classList.toggle('active', !activeA);
+    function markSelected(ids, selectedId) {
+      ids.forEach(id => { const b=document.getElementById(id); b.classList.remove('secondary'); b.classList.add('ghost'); });
+      const s=document.getElementById(selectedId); s.classList.remove('ghost'); s.classList.add('secondary');
     }
+    function show(el, yes=true) { el.classList.toggle('hidden', !yes); }
 
-    document.getElementById('rulePill').textContent =
-      `قاعدة التحويل: ١ جديدة = ${fmtAr(OLD_PER_NEW)} قديمة`;
+    document.getElementById('rulePill').textContent = `قاعدة التحويل: ١ جديدة = ${fmtAr(OLD_PER_NEW)} قديمة`;
 
-    // ====================== التبويبات ======================
+    // Tabs
     const tabConvert = document.getElementById('tabConvert');
-    const tabChange = document.getElementById('tabChange');
+    const tabWizard = document.getElementById('tabWizard');
     const sectionConvert = document.getElementById('sectionConvert');
-    const sectionChange = document.getElementById('sectionChange');
-
+    const sectionWizard = document.getElementById('sectionWizard');
     function showTab(which) {
       const isConvert = which === 'convert';
       tabConvert.classList.toggle('active', isConvert);
-      tabChange.classList.toggle('active', !isConvert);
-      sectionConvert.classList.toggle('hidden', !isConvert);
-      sectionChange.classList.toggle('hidden', isConvert);
+      tabWizard.classList.toggle('active', !isConvert);
+      show(sectionConvert, isConvert);
+      show(sectionWizard, !isConvert);
     }
     tabConvert.addEventListener('click', () => showTab('convert'));
-    tabChange.addEventListener('click', () => showTab('change'));
+    tabWizard.addEventListener('click', () => showTab('wizard'));
 
-    // ====================== وضع التحويل ======================
+    // Convert tab
     const oldAmt = document.getElementById('oldAmt');
     const newAmt = document.getElementById('newAmt');
-    const totalOld = document.getElementById('totalOld');
-    const totalNew = document.getElementById('totalNew');
+    const totalOldEl = document.getElementById('totalOld');
+    const totalNewEl = document.getElementById('totalNew');
     const convertWarn = document.getElementById('convertWarn');
 
     function updateConvert() {
       convertWarn.textContent = '';
       const o = parseNumber(oldAmt.value);
       const n = parseNumber(newAmt.value);
-
-      if (Number.isNaN(o) || Number.isNaN(n)) {
-        convertWarn.textContent = 'رجاءً إدخال أرقام صحيحة فقط.';
-        return;
-      }
-
-      const sumOld = o + (n * OLD_PER_NEW);
-      const sumNew = n + (o / OLD_PER_NEW);
-
-      totalOld.textContent = fmtAr(Math.round(sumOld));
-      totalNew.textContent = fmtArNew(sumNew);
+      if (Number.isNaN(o) || Number.isNaN(n)) { convertWarn.textContent='رجاءً إدخال أرقام صحيحة فقط.'; return; }
+      const sumOld = toOld(o,n);
+      totalOldEl.textContent = fmtAr(Math.round(sumOld));
+      totalNewEl.textContent = fmtArNew(oldToNew(sumOld));
     }
-
     oldAmt.addEventListener('input', updateConvert);
     newAmt.addEventListener('input', updateConvert);
 
-    // “السعر مكتوب…”
-    document.getElementById('priceIsNewBtn').addEventListener('click', () => {
-      oldAmt.value = '0';
-      newAmt.focus();
-      updateConvert();
-    });
-    document.getElementById('priceIsOldBtn').addEventListener('click', () => {
-      newAmt.value = '0';
-      oldAmt.focus();
-      updateConvert();
-    });
+    document.getElementById('priceIsNewBtn').addEventListener('click', () => { oldAmt.value='0'; newAmt.focus(); updateConvert(); });
+    document.getElementById('priceIsOldBtn').addEventListener('click', () => { newAmt.value='0'; oldAmt.focus(); updateConvert(); });
 
     document.getElementById('copyConvert').addEventListener('click', () => {
-      const text =
-        `النتيجة:\n` +
-        `- بالجديدة: ${totalNew.textContent}\n` +
-        `- بالقديمة: ${totalOld.textContent}\n` +
-        `قاعدة التحويل: 1 جديدة = ${OLD_PER_NEW} قديمة`;
+      const text = `النتيجة:\n- بالجديدة: ${totalNewEl.textContent}\n- بالقديمة: ${totalOldEl.textContent}\nقاعدة التحويل: 1 جديدة = ${OLD_PER_NEW} قديمة`;
       copyText(text, document.getElementById('copyConvertStatus'));
     });
 
-    // ====================== وضع الباقي/التحقق ======================
-    const priceOld = document.getElementById('priceOld');
-    const priceNew = document.getElementById('priceNew');
-    const paidOld = document.getElementById('paidOld');
-    const paidNew = document.getElementById('paidNew');
-    const changeOld = document.getElementById('changeOld');
-    const changeNew = document.getElementById('changeNew');
+    // Wizard state
+    const state = { priceOld:0, paidOld:0, expectedChangeOld:0, mode_s1:null, mode_s2:null, mode_s3:null, mode_v:null, lastOutcome:null, lastText:'' };
 
-    const priceTotal = document.getElementById('priceTotal');
-    const paidTotal = document.getElementById('paidTotal');
-    const expectedChange = document.getElementById('expectedChange');
-    const receivedChange = document.getElementById('receivedChange');
-    const diffEl = document.getElementById('diff');
-    const changeVerdict = document.getElementById('changeVerdict');
-    const changeWarn = document.getElementById('changeWarn');
+    const step1 = document.getElementById('step1');
+    const step2 = document.getElementById('step2');
+    const step3 = document.getElementById('step3');
+    const needMoreBox = document.getElementById('needMoreBox');
+    const verifyPromptBox = document.getElementById('verifyPromptBox');
+    const finalSummary = document.getElementById('finalSummary');
 
-    const showOldBtn = document.getElementById('showOldBtn');
-    const showNewBtn = document.getElementById('showNewBtn');
+    function resetWizard() {
+      ['s1_old_in','s1_new_in','s2_old_in','s2_new_in','s3_old_in','s3_new_in','v_old_in','v_new_in'].forEach(id => { const el=document.getElementById(id); if(el) el.value=''; });
 
-    // display mode for black results in change tab
-    let displayUnit = 'old'; // 'old' | 'new'
+      Object.assign(state, { priceOld:0, paidOld:0, expectedChangeOld:0, mode_s1:null, mode_s2:null, mode_s3:null, mode_v:null, lastOutcome:null, lastText:'' });
 
-    function totalOldFromInputs(oldVal, newVal) {
-      return oldVal + (newVal * OLD_PER_NEW);
+      show(step2,false); show(step3,false); show(needMoreBox,false); show(verifyPromptBox,false); show(finalSummary,false);
+      show(document.getElementById('verify_inputs_area'), false);
+      show(document.getElementById('v_out'), false);
+
+      ['s1_warn','s2_warn','s3_warn','r_warn','v_warn'].forEach(id => document.getElementById(id).textContent='');
+
+      ['s1_old_box','s1_new_box','s2_old_box','s2_new_box','s3_old_box','s3_new_box','v_old_box','v_new_box'].forEach(id => show(document.getElementById(id), false));
+      step1.scrollIntoView({ behavior:'smooth', block:'start' });
+    }
+    document.getElementById('restart').addEventListener('click', resetWizard);
+
+    function setMode(prefix, mode) {
+      const oldBox=document.getElementById(`${prefix}_old_box`);
+      const newBox=document.getElementById(`${prefix}_new_box`);
+      if(mode==='old'){ show(oldBox,true); show(newBox,false); }
+      else if(mode==='new'){ show(oldBox,false); show(newBox,true); }
+      else if(mode==='both'){ show(oldBox,true); show(newBox,true); }
+      else { show(oldBox,false); show(newBox,false); }
     }
 
-    function toNew(oldAmount) {
-      return oldAmount / OLD_PER_NEW;
+    function readAmount(prefix, mode, warnId) {
+      const warnEl=document.getElementById(warnId); warnEl.textContent='';
+      if(!mode){ warnEl.textContent='اختر طريقة الإدخال أولاً.'; return null; }
+
+      const oEl=document.getElementById(`${prefix}_old_in`);
+      const nEl=document.getElementById(`${prefix}_new_in`);
+      const o=oEl?parseNumber(oEl.value):0;
+      const n=nEl?parseNumber(nEl.value):0;
+
+      if(Number.isNaN(o)||Number.isNaN(n)){ warnEl.textContent='رجاءً إدخال أرقام صحيحة فقط.'; return null; }
+
+      if(mode==='old'){ if(!oEl.value){ warnEl.textContent='أدخل المبلغ بالعملة القديمة.'; return null; } return toOld(o,0); }
+      if(mode==='new'){ if(!nEl.value){ warnEl.textContent='أدخل المبلغ بالعملة الجديدة.'; return null; } return toOld(0,n); }
+      if(!oEl.value && !nEl.value){ warnEl.textContent='أدخل مبلغاً واحداً على الأقل.'; return null; }
+      return toOld(o,n);
     }
 
-    function unitLabel() {
-      return displayUnit === 'old' ? 'بالعملة القديمة' : 'بالعملة الجديدة';
+    // Step 1 mode buttons
+    document.getElementById('s1_old').addEventListener('click', ()=>{ state.mode_s1='old'; markSelected(['s1_old','s1_new','s1_both'],'s1_old'); setMode('s1','old'); });
+    document.getElementById('s1_new').addEventListener('click', ()=>{ state.mode_s1='new'; markSelected(['s1_old','s1_new','s1_both'],'s1_new'); setMode('s1','new'); });
+    document.getElementById('s1_both').addEventListener('click', ()=>{ state.mode_s1='both'; markSelected(['s1_old','s1_new','s1_both'],'s1_both'); setMode('s1','both'); });
+
+    // Step 2 mode buttons
+    document.getElementById('s2_old').addEventListener('click', ()=>{ state.mode_s2='old'; markSelected(['s2_old','s2_new','s2_both'],'s2_old'); setMode('s2','old'); });
+    document.getElementById('s2_new').addEventListener('click', ()=>{ state.mode_s2='new'; markSelected(['s2_old','s2_new','s2_both'],'s2_new'); setMode('s2','new'); });
+    document.getElementById('s2_both').addEventListener('click', ()=>{ state.mode_s2='both'; markSelected(['s2_old','s2_new','s2_both'],'s2_both'); setMode('s2','both'); });
+
+    // Step 3 additional pay mode buttons
+    document.getElementById('s3_old').addEventListener('click', ()=>{ state.mode_s3='old'; markSelected(['s3_old','s3_new','s3_both'],'s3_old'); setMode('s3','old'); });
+    document.getElementById('s3_new').addEventListener('click', ()=>{ state.mode_s3='new'; markSelected(['s3_old','s3_new','s3_both'],'s3_new'); setMode('s3','new'); });
+    document.getElementById('s3_both').addEventListener('click', ()=>{ state.mode_s3='both'; markSelected(['s3_old','s3_new','s3_both'],'s3_both'); setMode('s3','both'); });
+
+    // Verify prompt
+    document.getElementById('verify_yes').addEventListener('click', ()=>{ show(document.getElementById('verify_inputs_area'), true); show(document.getElementById('v_out'), false); });
+    document.getElementById('verify_no').addEventListener('click', ()=>{ show(document.getElementById('verify_inputs_area'), false); show(document.getElementById('v_out'), false); });
+
+    // Verify mode buttons
+    document.getElementById('v_old').addEventListener('click', ()=>{ state.mode_v='old'; markSelected(['v_old','v_new','v_both'],'v_old'); setMode('v','old'); });
+    document.getElementById('v_new').addEventListener('click', ()=>{ state.mode_v='new'; markSelected(['v_old','v_new','v_both'],'v_new'); setMode('v','new'); });
+    document.getElementById('v_both').addEventListener('click', ()=>{ state.mode_v='both'; markSelected(['v_old','v_new','v_both'],'v_both'); setMode('v','both'); });
+
+    function renderPriceKnown() {
+      document.getElementById('k_price_old').textContent = fmtAr(Math.round(state.priceOld));
+      document.getElementById('k_price_new').textContent = fmtArNew(oldToNew(state.priceOld));
+      document.getElementById('k_price_hint').textContent =
+        `الآن يجب دفع ${fmtArNew(oldToNew(state.priceOld))} بالعملة الجديدة أو ${fmtAr(Math.round(state.priceOld))} بالعملة القديمة.`;
     }
 
-    function formatByUnit(valueOld) {
-      if (displayUnit === 'old') return fmtAr(Math.round(valueOld));
-      return fmtArNew(toNew(valueOld));
+    function fillSummary(extraNote='') {
+      const priceLine = `${fmtArNew(oldToNew(state.priceOld))} جديدة | ${fmtAr(Math.round(state.priceOld))} قديمة`;
+      const paidLine  = `${fmtArNew(oldToNew(state.paidOld))} جديدة | ${fmtAr(Math.round(state.paidOld))} قديمة`;
+      document.getElementById('sum_price').textContent = priceLine;
+      document.getElementById('sum_paid').textContent = paidLine;
+      document.getElementById('sum_result').textContent = (state.lastText || '—') + (extraNote ? ` ${extraNote}` : '');
     }
 
-    function updateChange() {
-      changeWarn.textContent = '';
-      changeVerdict.textContent = '—';
-      changeVerdict.className = 'muted';
+    function renderResultAndNext() {
+      document.getElementById('r_price_old').textContent = fmtAr(Math.round(state.priceOld));
+      document.getElementById('r_price_new').textContent = fmtArNew(oldToNew(state.priceOld));
+      document.getElementById('r_paid_old').textContent  = fmtAr(Math.round(state.paidOld));
+      document.getElementById('r_paid_new').textContent  = fmtArNew(oldToNew(state.paidOld));
 
-      const pO = parseNumber(priceOld.value);
-      const pN = parseNumber(priceNew.value);
-      const payO = parseNumber(paidOld.value);
-      const payN = parseNumber(paidNew.value);
-      const chO = parseNumber(changeOld.value);
-      const chN = parseNumber(changeNew.value);
+      const msg=document.getElementById('r_message'); msg.className='muted';
+      document.getElementById('r_warn').textContent='';
 
-      const arr = [pO,pN,payO,payN,chO,chN];
-      if (arr.some(Number.isNaN)) {
-        changeWarn.textContent = 'رجاءً إدخال أرقام صحيحة فقط.';
+      state.expectedChangeOld = state.paidOld - state.priceOld;
+
+      show(needMoreBox,false);
+      show(verifyPromptBox,false);
+
+      if (Math.round(state.expectedChangeOld) === 0) {
+        state.lastOutcome='exact';
+        state.lastText='تم الدفع تماماً. لا يوجد باقي ✅';
+        msg.textContent=state.lastText; msg.classList.add('ok');
+        show(finalSummary,true); fillSummary();
         return;
       }
 
-      const priceOldTotal = totalOldFromInputs(pO, pN);
-      const paidOldTotal = totalOldFromInputs(payO, payN);
-      const receivedOldTotal = totalOldFromInputs(chO, chN);
-
-      const expectedOld = paidOldTotal - priceOldTotal;
-      const diffOld = receivedOldTotal - expectedOld; // + extra received, - shortage
-
-      // Update labels with selected unit
-      document.getElementById('lblPrice').textContent = `السعر (${unitLabel()})`;
-      document.getElementById('lblPaid').textContent = `المدفوع (${unitLabel()})`;
-      document.getElementById('lblExpected').textContent = `الباقي المتوقع (${unitLabel()})`;
-      document.getElementById('lblReceived').textContent = `الباقي المستلم (${unitLabel()})`;
-      document.getElementById('lblDiff').textContent = `الفرق (${unitLabel()})`;
-
-      // Display values in chosen unit
-      priceTotal.textContent = formatByUnit(priceOldTotal);
-      paidTotal.textContent = formatByUnit(paidOldTotal);
-      expectedChange.textContent = formatByUnit(expectedOld);
-      receivedChange.textContent = formatByUnit(receivedOldTotal);
-      diffEl.textContent = formatByUnit(diffOld);
-
-      // Verdict message
-      const absDiffOld = Math.abs(diffOld);
-
-      if (Math.round(absDiffOld) === 0) {
-        changeVerdict.textContent = 'النتيجة متطابقة ✅';
-        changeVerdict.className = 'muted ok';
+      if (state.expectedChangeOld > 0) {
+        const chOld = state.expectedChangeOld;
+        state.lastOutcome='needReturn';
+        state.lastText=`على البائع أن يعيد ${fmtArNew(oldToNew(chOld))} بالعملة الجديدة أو ${fmtAr(Math.round(chOld))} بالعملة القديمة.`;
+        msg.textContent=state.lastText; msg.classList.add('ok');
+        show(verifyPromptBox,true);
+        show(finalSummary,true); fillSummary();
         return;
       }
 
-      if (diffOld < 0) {
-        // shortage: vendor owes additional amount
-        const oweOld = absDiffOld;
-        const oweNew = toNew(oweOld);
-        changeVerdict.textContent =
-          `على البائع أن يعيد لك ${fmtArNew(oweNew)} بالعملة الجديدة أو ${fmtAr(Math.round(oweOld))} بالعملة القديمة. ❗`;
-        changeVerdict.className = 'muted bad';
+      const oweOld = Math.abs(state.expectedChangeOld);
+      state.lastOutcome='needMore';
+      state.lastText=`لا يزال يجب دفع ${fmtArNew(oldToNew(oweOld))} بالعملة الجديدة أو ${fmtAr(Math.round(oweOld))} بالعملة القديمة.`;
+      msg.textContent=state.lastText; msg.classList.add('bad');
+      show(needMoreBox,true);
+      show(finalSummary,true); fillSummary();
+    }
+
+    // Step 1 -> next
+    document.getElementById('s1_next').addEventListener('click', ()=>{
+      const priceOld = readAmount('s1', state.mode_s1, 's1_warn');
+      if(priceOld===null) return;
+      state.priceOld = priceOld;
+      renderPriceKnown();
+      show(step2,true);
+      step2.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+
+    // Step 2 back
+    document.getElementById('s2_back').addEventListener('click', ()=>{
+      show(step2,false); show(step3,false); show(finalSummary,false);
+      step1.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+
+    // Step 2 -> next (result)
+    document.getElementById('s2_next').addEventListener('click', ()=>{
+      const paidOld = readAmount('s2', state.mode_s2, 's2_warn');
+      if(paidOld===null) return;
+      state.paidOld = paidOld;
+      show(step3,true);
+      renderResultAndNext();
+      step3.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+
+    // Additional pay apply
+    document.getElementById('s3_apply').addEventListener('click', ()=>{
+      const addOld = readAmount('s3', state.mode_s3, 's3_warn');
+      if(addOld===null) return;
+      state.paidOld += addOld;
+      renderResultAndNext();
+      if(state.expectedChangeOld >= 0) {
+        show(verifyPromptBox, true);
+        verifyPromptBox.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+
+    // Verify check
+    document.getElementById('v_check').addEventListener('click', ()=>{
+      const warnEl=document.getElementById('v_warn'); warnEl.textContent='';
+      if(state.expectedChangeOld < 0) { warnEl.textContent='لا يوجد باقي متوقع حالياً (لا يزال هناك مبلغ يجب دفعه).'; return; }
+
+      const expectedOld = state.expectedChangeOld;
+      const receivedOld = readAmount('v', state.mode_v, 'v_warn');
+      if(receivedOld===null) return;
+
+      show(document.getElementById('v_out'), true);
+      document.getElementById('v_expected_old').textContent = fmtAr(Math.round(expectedOld));
+      document.getElementById('v_expected_new').textContent = fmtArNew(oldToNew(expectedOld));
+      document.getElementById('v_received_old').textContent = fmtAr(Math.round(receivedOld));
+      document.getElementById('v_received_new').textContent = fmtArNew(oldToNew(receivedOld));
+
+      const diff = receivedOld - expectedOld;
+      const msg=document.getElementById('v_msg');
+
+      if(Math.round(diff)===0) {
+        msg.textContent='الباقي صحيح ✅'; msg.className='muted ok';
+        fillSummary('— تم التحقق: الباقي صحيح ✅');
+      } else if(diff < 0) {
+        const owe=Math.abs(diff);
+        msg.textContent=`أعاد البائع أقل مما يجب. يجب أن يعيد ${fmtArNew(oldToNew(owe))} بالعملة الجديدة أو ${fmtAr(Math.round(owe))} بالعملة القديمة. ❗`;
+        msg.className='muted bad';
+        fillSummary(`— تم التحقق: أعاد البائع أقل مما يجب (${fmtArNew(oldToNew(owe))} جديدة أو ${fmtAr(Math.round(owe))} قديمة) ❗`);
       } else {
-        // Received more change than expected -> still need to pay the difference
-        const oweOld = absDiffOld;
-        const oweNew = toNew(oweOld);
-        changeVerdict.textContent =
-          `لا يزال يجب دفع ${fmtArNew(oweNew)} بالعملة الجديدة أو ${fmtAr(Math.round(oweOld))} بالعملة القديمة. ✅`;
-        changeVerdict.className = 'muted ok';
+        msg.textContent='تم استلام أكثر من المتوقع ✅'; msg.className='muted ok';
+        fillSummary('— تم التحقق: تم استلام أكثر من المتوقع ✅');
       }
-    }
-
-    [priceOld, priceNew, paidOld, paidNew, changeOld, changeNew].forEach(el => el.addEventListener('input', updateChange));
-
-    document.getElementById('clearChange').addEventListener('click', () => {
-      [priceOld, priceNew, paidOld, paidNew, changeOld, changeNew].forEach(el => el.value = '');
-      updateChange();
-      priceOld.focus();
     });
 
-    // “السعر مكتوب…”
-    document.getElementById('changePriceIsNewBtn').addEventListener('click', () => {
-      priceOld.value = '0';
-      priceNew.focus();
-      updateChange();
-    });
-    document.getElementById('changePriceIsOldBtn').addEventListener('click', () => {
-      priceNew.value = '0';
-      priceOld.focus();
-      updateChange();
-    });
+    // Copy result & summary
+    document.getElementById('copyResult').addEventListener('click', ()=>{
+      const priceOld=state.priceOld, paidOld=state.paidOld;
+      const ch=paidOld-priceOld;
+      let line='';
+      if(Math.round(ch)===0) line='تم الدفع تماماً. لا يوجد باقي.';
+      else if(ch>0) line=`على البائع أن يعيد ${fmtArNew(oldToNew(ch))} جديدة أو ${fmtAr(Math.round(ch))} قديمة.`;
+      else { const owe=Math.abs(ch); line=`لا يزال يجب دفع ${fmtArNew(oldToNew(owe))} جديدة أو ${fmtAr(Math.round(owe))} قديمة.`; }
 
-    // Toggle display currency under black section
-    showOldBtn.addEventListener('click', () => {
-      displayUnit = 'old';
-      setActive(showOldBtn, showNewBtn, true);
-      updateChange();
-    });
-    showNewBtn.addEventListener('click', () => {
-      displayUnit = 'new';
-      setActive(showOldBtn, showNewBtn, false);
-      updateChange();
+      const text = `ملخص:\n- السعر: ${fmtArNew(oldToNew(priceOld))} جديدة | ${fmtAr(Math.round(priceOld))} قديمة\n- المدفوع: ${fmtArNew(oldToNew(paidOld))} جديدة | ${fmtAr(Math.round(paidOld))} قديمة\n${line}\nقاعدة التحويل: 1 جديدة = ${OLD_PER_NEW} قديمة`;
+      copyText(text, document.getElementById('copyResultStatus'));
     });
 
-    // Copy summary
-    document.getElementById('copyChange').addEventListener('click', () => {
-      // always include BOTH currencies in the copied text (useful in shop)
-      const pO = parseNumber(priceOld.value), pN = parseNumber(priceNew.value);
-      const payO = parseNumber(paidOld.value), payN = parseNumber(paidNew.value);
-      const chO = parseNumber(changeOld.value), chN = parseNumber(changeNew.value);
-
-      const priceOldTotal = totalOldFromInputs(pO, pN);
-      const paidOldTotal = totalOldFromInputs(payO, payN);
-      const receivedOldTotal = totalOldFromInputs(chO, chN);
-      const expectedOld = paidOldTotal - priceOldTotal;
-      const diffOld = receivedOldTotal - expectedOld;
-
-      const text =
-        `تحقق الباقي:\n` +
-        `- السعر: ${fmtArNew(toNew(priceOldTotal))} جديدة | ${fmtAr(Math.round(priceOldTotal))} قديمة\n` +
-        `- المدفوع: ${fmtArNew(toNew(paidOldTotal))} جديدة | ${fmtAr(Math.round(paidOldTotal))} قديمة\n` +
-        `- الباقي المتوقع: ${fmtArNew(toNew(expectedOld))} جديدة | ${fmtAr(Math.round(expectedOld))} قديمة\n` +
-        `- الباقي المستلم: ${fmtArNew(toNew(receivedOldTotal))} جديدة | ${fmtAr(Math.round(receivedOldTotal))} قديمة\n` +
-        `- الفرق: ${fmtArNew(toNew(diffOld))} جديدة | ${fmtAr(Math.round(diffOld))} قديمة\n` +
-        `قاعدة التحويل: 1 جديدة = ${OLD_PER_NEW} قديمة`;
-      copyText(text, document.getElementById('copyChangeStatus'));
+    document.getElementById('copySummary').addEventListener('click', ()=>{
+      const text = `ملخص العملية:\n- السعر: ${document.getElementById('sum_price').textContent}\n- المدفوع: ${document.getElementById('sum_paid').textContent}\n- النتيجة: ${document.getElementById('sum_result').textContent}\nقاعدة التحويل: 1 جديدة = ${OLD_PER_NEW} قديمة`;
+      copyText(text, document.getElementById('copySummaryStatus'));
     });
 
-    // ====================== تهيئة ======================
+    // Init
+    resetWizard();
     updateConvert();
-    updateChange();
   </script>
 </body>
 </html>
