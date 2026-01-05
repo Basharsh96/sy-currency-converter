@@ -68,11 +68,50 @@
     .summaryKey { opacity:.75; }
     .summaryVal { font-weight:750; }
 
+    /* ===== Fun tab ===== */
+    .funWrap { text-align:center; }
+    .funTitle { font-size:18px; font-weight:850; margin: 4px 0 8px; }
+    .funStage {
+      margin-top: 12px;
+      border-radius: 18px;
+      padding: 16px;
+      background: #0f172a;
+      color: #fff;
+      min-height: 240px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+    .dancers {
+      display:flex;
+      gap: 14px;
+      align-items:center;
+      justify-content:center;
+      flex-wrap: wrap;
+      font-size: 52px;
+      line-height: 1;
+    }
+    .dancers span { display:inline-block; }
+    .shimmy1 { animation: shimmy 1.15s ease-in-out infinite; }
+    .shimmy2 { animation: shimmy 1.35s ease-in-out infinite; }
+    .shimmy3 { animation: shimmy 1.25s ease-in-out infinite; }
+    .shimmy4 { animation: shimmy 1.45s ease-in-out infinite; }
+
+    @keyframes shimmy {
+      0%   { transform: translateY(0) rotate(-6deg) scale(1); }
+      25%  { transform: translateY(-6px) rotate(6deg) scale(1.02); }
+      50%  { transform: translateY(0) rotate(-6deg) scale(1); }
+      75%  { transform: translateY(6px) rotate(6deg) scale(1.02); }
+      100% { transform: translateY(0) rotate(-6deg) scale(1); }
+    }
+
     @media (max-width: 820px) {
       .grid { grid-template-columns: 1fr; }
       .btnRow3 { grid-template-columns: 1fr; }
       .btnRow2 { grid-template-columns: 1fr; }
       .wrap { padding: 10px; }
+      .dancers { font-size: 46px; }
+      .funStage { min-height: 220px; }
     }
   </style>
 </head>
@@ -92,6 +131,7 @@
       <div class="tabs" role="tablist" aria-label="اختيار الوضع">
         <button class="tab active" id="tabConvert" type="button">تحويل سريع</button>
         <button class="tab" id="tabWizard" type="button">الدفع والباقي (خطوات)</button>
+        <button class="tab" id="tabFun" type="button">ولا يهمّك 😄</button>
       </div>
 
       <!-- ===== Tab 1: Convert quick ===== -->
@@ -164,8 +204,6 @@
           <div class="boxTitle"><span class="stepPill">الخطوة 2</span><span class="mini">المدفوع</span></div>
 
           <div class="outCard" aria-live="polite">
-            <div class="outLine"><span class="outLabel">السعر (بالجديدة)</span><span class="outValue" id="k_price_new">0</span></div>
-            <div class="outLine"><span class="outLabel">السعر (بالقديمة)</span><span class="outValue" id="k_price_old">0</span></div>
             <div class="muted" id="k_price_hint">—</div>
           </div>
 
@@ -195,20 +233,15 @@
           </div>
         </div>
 
-        <!-- Step 3 (Result + next action) -->
+        <!-- Step 3 -->
         <div class="box hidden" id="step3">
           <div class="boxTitle"><span class="stepPill">الخطوة 3</span><span class="mini">النتيجة</span></div>
 
           <div class="outCard" aria-live="polite" id="r_card">
-            <div class="outLine"><span class="outLabel">السعر (بالجديدة)</span><span class="outValue" id="r_price_new">0</span></div>
-            <div class="outLine"><span class="outLabel">السعر (بالقديمة)</span><span class="outValue" id="r_price_old">0</span></div>
-            <div class="outLine"><span class="outLabel">المدفوع (بالجديدة)</span><span class="outValue" id="r_paid_new">0</span></div>
-            <div class="outLine"><span class="outLabel">المدفوع (بالقديمة)</span><span class="outValue" id="r_paid_old">0</span></div>
             <div class="muted" id="r_message">—</div>
             <div class="warn" id="r_warn"></div>
           </div>
 
-          <!-- If paid less -->
           <div class="box hidden" id="needMoreBox" style="margin-top:12px;">
             <div class="boxTitle"><span>مبلغ إضافي</span><span class="mini">إذا سيتم دفع مبلغ إضافي الآن</span></div>
             <div class="q">كم سيتم دفعه إضافياً الآن؟</div>
@@ -236,7 +269,6 @@
             </div>
           </div>
 
-          <!-- If change expected -->
           <div class="box hidden" id="verifyPromptBox" style="margin-top:12px;">
             <div class="boxTitle"><span>التحقق من الباقي</span><span class="mini">اختياري</span></div>
             <div class="q">اضغط هنا إذا أعاد البائع مبلغاً مختلفاً أو أعاد بالعملتين، وسنتحقق معاً.</div>
@@ -281,7 +313,6 @@
             </div>
           </div>
 
-          <!-- Final summary -->
           <div class="summaryCard hidden" id="finalSummary">
             <div class="boxTitle"><span class="stepPill">ملخص</span><span class="mini">يمكن إظهار هذا للبائع</span></div>
 
@@ -306,6 +337,41 @@
 
         </div>
       </section>
+
+      <!-- ===== Tab 3: Fun ===== -->
+      <section id="sectionFun" class="hidden">
+        <div class="box funWrap">
+          <div class="boxTitle">
+            <span>ولا يهمّك 😄</span>
+            <span class="mini">إذا ضايع/ة… خذ/ي نفس وشوف/ي رقص</span>
+          </div>
+
+          <div class="funTitle">مو عارف/ة شو تعمل؟ طيب… ورّيني حيوانات بترقص 💃🕺</div>
+
+          <div class="btnRow3">
+            <button class="ghost" id="funCats" type="button">قطط</button>
+            <button class="ghost" id="funDogs" type="button">كلاب</button>
+            <button class="secondary" id="funBoth" type="button">الكل</button>
+          </div>
+
+          <div class="funStage" aria-live="polite">
+            <div class="dancers" id="funStage">
+              <!-- default: both -->
+              <span class="shimmy1">🐱</span>
+              <span class="shimmy2">💃</span>
+              <span class="shimmy3">🐶</span>
+              <span class="shimmy4">🕺</span>
+              <span class="shimmy2">🐱</span>
+              <span class="shimmy3">💃</span>
+              <span class="shimmy4">🐶</span>
+              <span class="shimmy1">🕺</span>
+            </div>
+          </div>
+
+          <div class="mini" style="margin-top:10px;">نصيحة: إذا صار توتر بالمحل… افتح/ي هالتبويب ٣ ثواني وارجع/ي للخطوات 😄</div>
+        </div>
+      </section>
+
     </div>
   </div>
 
@@ -348,18 +414,30 @@
 
     // Tabs
     const tabConvert = document.getElementById('tabConvert');
-    const tabWizard = document.getElementById('tabWizard');
+    const tabWizard  = document.getElementById('tabWizard');
+    const tabFun     = document.getElementById('tabFun');
+
     const sectionConvert = document.getElementById('sectionConvert');
-    const sectionWizard = document.getElementById('sectionWizard');
-    function showTab(which) {
-      const isConvert = which === 'convert';
-      tabConvert.classList.toggle('active', isConvert);
-      tabWizard.classList.toggle('active', !isConvert);
-      show(sectionConvert, isConvert);
-      show(sectionWizard, !isConvert);
+    const sectionWizard  = document.getElementById('sectionWizard');
+    const sectionFun     = document.getElementById('sectionFun');
+
+    function setActiveTab(activeBtn) {
+      [tabConvert, tabWizard, tabFun].forEach(b => b.classList.remove('active'));
+      activeBtn.classList.add('active');
     }
+
+    function showTab(which) {
+      show(sectionConvert, which === 'convert');
+      show(sectionWizard,  which === 'wizard');
+      show(sectionFun,     which === 'fun');
+      if(which === 'convert') setActiveTab(tabConvert);
+      if(which === 'wizard')  setActiveTab(tabWizard);
+      if(which === 'fun')     setActiveTab(tabFun);
+    }
+
     tabConvert.addEventListener('click', () => showTab('convert'));
-    tabWizard.addEventListener('click', () => showTab('wizard'));
+    tabWizard.addEventListener('click',  () => showTab('wizard'));
+    tabFun.addEventListener('click',     () => showTab('fun'));
 
     // Convert tab
     const oldAmt = document.getElementById('oldAmt');
@@ -465,8 +543,6 @@
     document.getElementById('v_both').addEventListener('click', ()=>{ state.mode_v='both'; markSelected(['v_old','v_new','v_both'],'v_both'); setMode('v','both'); });
 
     function renderPriceKnown() {
-      document.getElementById('k_price_old').textContent = fmtAr(Math.round(state.priceOld));
-      document.getElementById('k_price_new').textContent = fmtArNew(oldToNew(state.priceOld));
       document.getElementById('k_price_hint').textContent =
         `الآن يجب دفع ${fmtArNew(oldToNew(state.priceOld))} بالعملة الجديدة أو ${fmtAr(Math.round(state.priceOld))} بالعملة القديمة.`;
     }
@@ -480,11 +556,6 @@
     }
 
     function renderResultAndNext() {
-      document.getElementById('r_price_old').textContent = fmtAr(Math.round(state.priceOld));
-      document.getElementById('r_price_new').textContent = fmtArNew(oldToNew(state.priceOld));
-      document.getElementById('r_paid_old').textContent  = fmtAr(Math.round(state.paidOld));
-      document.getElementById('r_paid_new').textContent  = fmtArNew(oldToNew(state.paidOld));
-
       const msg=document.getElementById('r_message'); msg.className='muted';
       document.getElementById('r_warn').textContent='';
 
@@ -580,12 +651,15 @@
         fillSummary('— تم التحقق: الباقي صحيح ✅');
       } else if(diff < 0) {
         const owe=Math.abs(diff);
-        msg.textContent=`أعاد البائع أقل مما يجب. يجب أن يعيد ${fmtArNew(oldToNew(owe))} بالعملة الجديدة أو ${fmtAr(Math.round(owe))} بالعملة القديمة. ❗`;
+        msg.textContent=`أعاد البائع أقل مما يجب. يجب أن يعيد أيضاً ${fmtArNew(oldToNew(owe))} بالعملة الجديدة أو ${fmtAr(Math.round(owe))} بالعملة القديمة. ❗`;
         msg.className='muted bad';
         fillSummary(`— تم التحقق: أعاد البائع أقل مما يجب (${fmtArNew(oldToNew(owe))} جديدة أو ${fmtAr(Math.round(owe))} قديمة) ❗`);
       } else {
-        msg.textContent='تم استلام أكثر من المتوقع ✅'; msg.className='muted ok';
-        fillSummary('— تم التحقق: تم استلام أكثر من المتوقع ✅');
+        const extra = diff; // diff > 0
+        msg.textContent =
+          `أعاد البائع أكثر من المطلوب بمقدار ${fmtArNew(oldToNew(extra))} بالعملة الجديدة أو ${fmtAr(Math.round(extra))} بالعملة القديمة. ✅`;
+        msg.className = 'muted ok';
+        fillSummary(`— تم التحقق: أعاد أكثر من المطلوب (${fmtArNew(oldToNew(extra))} جديدة أو ${fmtAr(Math.round(extra))} قديمة) ✅`);
       }
     });
 
@@ -607,9 +681,32 @@
       copyText(text, document.getElementById('copySummaryStatus'));
     });
 
+    // ===== Fun tab logic =====
+    const funStage = document.getElementById('funStage');
+    function renderFun(kind) {
+      const cats = ['🐱','🐈','😺','🐾'];
+      const dogs = ['🐶','🐕','🦮','🐾'];
+      const dancers = ['💃','🕺','💃','🕺'];
+      let items = [];
+
+      if(kind === 'cats') items = [cats[0], dancers[0], cats[1], dancers[1], cats[2], dancers[2], cats[3], dancers[3]];
+      else if(kind === 'dogs') items = [dogs[0], dancers[0], dogs[1], dancers[1], dogs[2], dancers[2], dogs[3], dancers[3]];
+      else items = ['🐱','💃','🐶','🕺','🐱','💃','🐶','🕺'];
+
+      funStage.innerHTML = items.map((x, i) => {
+        const cls = ['shimmy1','shimmy2','shimmy3','shimmy4'][i % 4];
+        return `<span class="${cls}">${x}</span>`;
+      }).join('');
+    }
+
+    document.getElementById('funCats').addEventListener('click', ()=>{ renderFun('cats'); markSelected(['funCats','funDogs','funBoth'],'funCats'); });
+    document.getElementById('funDogs').addEventListener('click', ()=>{ renderFun('dogs'); markSelected(['funCats','funDogs','funBoth'],'funDogs'); });
+    document.getElementById('funBoth').addEventListener('click', ()=>{ renderFun('both'); markSelected(['funCats','funDogs','funBoth'],'funBoth'); });
+
     // Init
     resetWizard();
     updateConvert();
+    renderFun('both');
   </script>
 </body>
 </html>
